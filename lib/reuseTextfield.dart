@@ -10,7 +10,6 @@ class BoxTextField extends StatelessWidget {
   final bool isMulti;
   final bool autofocus;
   final bool enabled;
-  final String errorText;
   final String label;
 
   BoxTextField(
@@ -22,7 +21,6 @@ class BoxTextField extends StatelessWidget {
         this.isMulti = false,
         this.readOnly = false,
         this.autofocus = false,
-        required this.errorText,
         required this.label,
         this.enabled = true,
         });
@@ -42,7 +40,6 @@ class BoxTextField extends StatelessWidget {
           keyboardType: keyboardType,
           controller: controller,
           decoration: InputDecoration(
-            errorText: errorText,
             labelStyle: TextStyle(fontSize: 12),
             labelText: label,
             hintStyle: TextStyle(color: Colors.blueGrey, fontSize: 15),

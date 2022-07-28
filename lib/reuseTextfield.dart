@@ -1,44 +1,79 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Textfield extends StatefulWidget {
-  final  hintText;
-  final hintColor;
-  const Textfield({this.hintText,this.hintColor }) ;
+class BoxTextField extends StatelessWidget {
+  final TextEditingController controller;
+  final FormFieldValidator<String> validator;
+  final bool obsecure;
+  final bool readOnly;
+  final TextInputType keyboardType;
+  final bool isMulti;
+  final bool autofocus;
+  final bool enabled;
+  final String errorText;
+  final String label;
 
-  @override
-  _TextfieldState createState() => _TextfieldState();
-}
+  BoxTextField(
+      {
+        required this.controller,
+        required this.validator,
+        this.keyboardType = TextInputType.text,
+        this.obsecure = false,
+        this.isMulti = false,
+        this.readOnly = false,
+        this.autofocus = false,
+        required this.errorText,
+        required this.label,
+        this.enabled = true,
+        });
 
-class _TextfieldState extends State<Textfield> {
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          _buildTextField(widget.hintText,widget.hintColor)
-        ],
-      ),
+      margin: EdgeInsets.symmetric(vertical: 4),
+      child: TextFormField(
+          autofocus: autofocus,
+          minLines: isMulti ? 4 : 1,
+          maxLines: isMulti ? null : 1,
+          enabled: enabled,
+          readOnly: readOnly,
+          obscureText: obsecure,
+          keyboardType: keyboardType,
+          controller: controller,
+          decoration: InputDecoration(
+            errorText: errorText,
+            labelStyle: TextStyle(fontSize: 12),
+            labelText: label,
+            hintStyle: TextStyle(color: Colors.blueGrey, fontSize: 15),
+            contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: Colors.blue,
+              ),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: Colors.red,
+                width: 2.0,
+              ),
+            ),
+            border:OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: Colors.blue,
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(25.0),
+              borderSide: BorderSide(
+                color: Colors.red,
+              ),
+            ),
+          ),
+          validator: validator),
     );
   }
-
-  Widget _buildTextField(String hintText,Color hintColor){// add other properties here}) { // new
-  return Container(
-  //Type TextField
-  width: 120,
-  height: 50,
-  color: Colors.white,
-  child: TextField(
-  decoration: InputDecoration(
-  contentPadding: EdgeInsets.all(10.0),
-  enabledBorder: UnderlineInputBorder(
-  borderSide: BorderSide(color: Colors.red),
-  ),
-  hintText: hintText, // pass the hint text parameter here
-  hintStyle: TextStyle(color: widget.hintColor),
-  ),
-  style: TextStyle(color: Colors.black),
-  ),
-  );
-}
 }

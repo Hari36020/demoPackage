@@ -24,17 +24,17 @@ class _TextfieldState extends State<Textfield> {
   Widget _buildTextField(String hintText){// add other properties here}) { // new
   return Container(
   //Type TextField
-  width: 50,
-  height: 20,
-  color: Colors.blue,
+  width: 120,
+  height: 50,
+  color: Colors.white,
   child: TextField(
   decoration: InputDecoration(
   contentPadding: EdgeInsets.all(10.0),
   enabledBorder: UnderlineInputBorder(
-  borderSide: BorderSide(color: Colors.white),
+  borderSide: BorderSide(color: Colors.red),
   ),
   hintText: hintText, // pass the hint text parameter here
-  hintStyle: TextStyle(color: Colors.blue),
+  hintStyle: TextStyle(color: Colors.green),
   ),
   style: TextStyle(color: Colors.black),
   ),

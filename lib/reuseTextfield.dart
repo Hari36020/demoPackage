@@ -53,7 +53,7 @@ class BoxTextField extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.0),
               borderSide: BorderSide(
-                color: Colors.red,
+                color: Colors.blue,
                 width: 2.0,
               ),
             ),

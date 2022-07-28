@@ -4,12 +4,11 @@ class BoxButton extends StatelessWidget {
 
   final Widget child;
   final  onPressed;
-  final Gradient gradient;
 
   BoxButton({
     required this.onPressed,
     required this.child,
-    required this.gradient });
+  });
 
   @override
   Widget build(BuildContext context) {

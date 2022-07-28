@@ -3,6 +3,7 @@ library demopackage;
 
 
 export 'package:demopackage/reuseTextfield.dart';
+export 'package:demopackage/reuseButton.dart';
 
 /// A Calculator.
 class Calculator {

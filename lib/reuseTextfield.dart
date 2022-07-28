@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 
 class Textfield extends StatefulWidget {
   final  hintText;
-  const Textfield({this.hintText }) ;
+  final hintColor;
+  const Textfield({this.hintText,this.hintColor }) ;
 
   @override
   _TextfieldState createState() => _TextfieldState();
@@ -15,13 +16,13 @@ class _TextfieldState extends State<Textfield> {
     return Container(
       child: Column(
         children: [
-          _buildTextField(widget.hintText)
+          _buildTextField(widget.hintText,widget.hintColor)
         ],
       ),
     );
   }
 
-  Widget _buildTextField(String hintText){// add other properties here}) { // new
+  Widget _buildTextField(String hintText,Color hintColor){// add other properties here}) { // new
   return Container(
   //Type TextField
   width: 120,
@@ -34,7 +35,7 @@ class _TextfieldState extends State<Textfield> {
   borderSide: BorderSide(color: Colors.red),
   ),
   hintText: hintText, // pass the hint text parameter here
-  hintStyle: TextStyle(color: Colors.green),
+  hintStyle: TextStyle(color: widget.hintColor),
   ),
   style: TextStyle(color: Colors.black),
   ),
